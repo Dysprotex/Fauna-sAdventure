@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     private const float Y_ANGLE_MIN = 5f;
     private const float Y_ANGLE_MAX = 80f;
 
+    private const float DISTANCE_MIN = 2;
+    private const float DISTANCE_MAX = 50;
+
     public Transform lookAt;
     public Transform camTransform;
 
@@ -29,6 +32,7 @@ public class CameraController : MonoBehaviour
         currentY -= Input.GetAxis("Mouse Y");
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+        distance = Mathf.Clamp(distance, DISTANCE_MIN, DISTANCE_MAX);
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
