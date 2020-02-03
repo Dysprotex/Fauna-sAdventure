@@ -5,8 +5,8 @@ using UnityEngine;
 public class MouseRotatiion : MonoBehaviour
 {
 
-    float mouseSpeed = 10;
-    float rotationSpeedY = 3;
+    public float mouseSpeed = 10;
+    public float rotationSpeedY = 2;
 
     void Update()
     {

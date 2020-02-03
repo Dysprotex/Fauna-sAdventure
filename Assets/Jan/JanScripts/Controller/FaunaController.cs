@@ -78,9 +78,9 @@ public class FaunaController : MonoBehaviour, IInputReceiver
             speed = 10;
         }
 
-        if(dashAble == true)
-        {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) && doubleTap)
+        
+        
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (Time.time - doubleTapTime < 0.2f)
                 {
@@ -94,12 +94,12 @@ public class FaunaController : MonoBehaviour, IInputReceiver
                 doubleTap = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) && !doubleTap)
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 doubleTap = true;
                 doubleTapTime = Time.time;
             }
-        }
+        
             if (timer >= 0.2 && activeTimer == true)
             {
                 speed = 10;
