@@ -60,6 +60,10 @@ public class EnemyUI : MonoBehaviour
 
     private void UpdateNavMeshTarget()
     {
-        agent.SetDestination(wayPoints[num].transform.position);
+        if(num > 1)
+        {
+            agent.SetDestination(wayPoints[num].transform.position);
+        }
+        
     }
 }
