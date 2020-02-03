@@ -67,16 +67,16 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineThickness: 0.33
+    - _OutlineThickness: 0
     - _Parallax: 0.02
-    - _Shininess: 0.804
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8773585, g: 0.45937166, b: 0.7429471, a: 1}
+    - _Color: {r: 0.7767115, g: 0.5768512, b: 0.8207547, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnlitColor: {r: 0.46226418, g: 0.13300997, b: 0.4245652, a: 1}
+    - _UnlitColor: {r: 0.5292025, g: 0.38768244, b: 0.6792453, a: 1}
