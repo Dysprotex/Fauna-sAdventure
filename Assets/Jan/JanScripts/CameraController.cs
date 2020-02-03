@@ -29,6 +29,15 @@ public class CameraController : MonoBehaviour
         currentY -= Input.GetAxis("Mouse Y");
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            distance += 1;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            distance -= 1;
+        }
     }
     private void LateUpdate()
     {

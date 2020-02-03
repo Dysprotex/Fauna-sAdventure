@@ -15,6 +15,7 @@ public class FaunaController : MonoBehaviour, IInputReceiver
     float dashForce = 200;
     bool dashAble = true;
     bool activeTimer = true;
+    bool dash = false;
 
     float timer = 0;
     float shootTimer;
@@ -69,9 +70,12 @@ public class FaunaController : MonoBehaviour, IInputReceiver
             }
         }
 
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButton("Sprint"))
         {
-            speed = 20;
+            if(dash != true)
+            {
+                speed = 20;
+            }
         }
         if (Input.GetButtonUp("Sprint"))
         {
@@ -80,35 +84,28 @@ public class FaunaController : MonoBehaviour, IInputReceiver
 
         
         
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if(dashAble == true)
             {
-                if (Time.time - doubleTapTime < 0.2f)
-                {
-                    speed = dashForce;
-                    doubleTapTime = 0f;
-                    timer = 0;
-                    activeTimer = true;
-                    dashAble = false;
+                dash = true;
+                speed = dashForce;
+                timer = 0;
+                activeTimer = true;
+                dashAble = false;
+            }
+        }
 
-                }
-                doubleTap = false;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                doubleTap = true;
-                doubleTapTime = Time.time;
-            }
-        
-            if (timer >= 0.2 && activeTimer == true)
-            {
-                speed = 10;
-                activeTimer = false;
-            }
-            if(timer >= 5)
-            {
-                dashAble = true;
-            }
+        if (timer >= 0.2 && activeTimer == true)
+        {
+            speed = 10;
+            activeTimer = false;
+            dash = false;
+        }
+        if (timer >= 1)
+        {
+            dashAble = true;
+        }
 
     }
 
