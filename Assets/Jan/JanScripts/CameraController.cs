@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     private const float Y_ANGLE_MIN = 5f;
     private const float Y_ANGLE_MAX = 80f;
 
-    private const float DISTANCE_MIN = 2;
-    private const float DISTANCE_MAX = 50;
+    private const float DISTANCE_MIN = 10f;
+    private const float DISTANCE_MAX = 50f;
 
     public Transform lookAt;
     public Transform camTransform;
