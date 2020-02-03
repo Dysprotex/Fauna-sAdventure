@@ -39,7 +39,7 @@ public class BulletPool : MonoBehaviour
                 return currentObject;
             }
         }
-        return Nothing();
+        return AddObjectToPool();
     }
 
     BulletBehaviour Nothing()

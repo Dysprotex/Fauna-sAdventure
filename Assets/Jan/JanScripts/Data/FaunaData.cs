@@ -16,11 +16,6 @@ public class FaunaData : ScriptableObject
     public float RotationForce => rotationForce;
     public float JumpForce => jumpForce;
 
-    public FaunaData()
-    {
-        Debug.Log("New new Fauna object created.");
-    }
-
     public void OutputData()
     {
         Debug.Log(Acceleration + " | " + RotationForce);
