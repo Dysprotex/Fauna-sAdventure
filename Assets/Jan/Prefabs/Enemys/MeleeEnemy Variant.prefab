@@ -215,6 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHp: 7
+  numOfHearts: 7
+  hearts: []
+  fullHearts: {fileID: 0}
+  emptyHearts: {fileID: 0}
 --- !u!114 &4989670840509457831
 MonoBehaviour:
   m_ObjectHideFlags: 0
