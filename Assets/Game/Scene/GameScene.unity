@@ -48836,6 +48836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 269414091}
   camTransform: {fileID: 1234623572}
+  intensity: 10
 --- !u!81 &1234623570
 AudioListener:
   m_ObjectHideFlags: 0
@@ -84850,6 +84851,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.963
       objectReference: {fileID: 0}
+    - target: {fileID: 792778393, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1234623569}
+    - target: {fileID: 792778393, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
+      propertyPath: shakeer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 792778393, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
+      propertyPath: camController
+      value: 
+      objectReference: {fileID: 1234623569}
     - target: {fileID: 269414092, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
       propertyPath: m_Volume
       value: 0.1

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class FaunaController : MonoBehaviour, IInputReceiver
 {
     Rigidbody rb;
+    public CameraController camController;
 
     float hInput, vInput;
     public bool jumpable = true;
@@ -16,9 +17,11 @@ public class FaunaController : MonoBehaviour, IInputReceiver
     bool dashAble = true;
     bool activeTimer = true;
     bool dash = false;
+    bool shooting = false;
 
     float timer = 0;
     float shootTimer;
+    public float duration = 1f;
 
     NavMeshAgent agent;
     public FaunaData data;
@@ -59,6 +62,8 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         //PlayerMovement
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * speed);
 
+        camController.Shake(duration);
+
         //Player-Jump
         if (Input.GetButtonDown("Jump"))
         {
@@ -81,8 +86,6 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         {
             speed = 10;
         }
-
-        
         
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -106,7 +109,6 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         {
             dashAble = true;
         }
-
     }
 
 
@@ -116,5 +118,10 @@ public class FaunaController : MonoBehaviour, IInputReceiver
     }
 
     
-    public void OnFireDown() { speed = 10; }
+    public void OnFireDown()
+    {
+        camController.Shake(duration);
+        rb.AddRelativeForce(Vector3.forward * -50);
+        speed = 10;
+    }
 }
