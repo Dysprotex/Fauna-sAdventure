@@ -17,19 +17,18 @@ public class Healthbehavior : MonoBehaviour, IDamagable
     void Start()
     {
         currentHp = initialHp;
-    }
-    
-    void Update()
-    {
-        if(currentHp > numOfHearts)
+        if (currentHp > numOfHearts)
         {
             currentHp = numOfHearts;
         }
-
+    }
+    public void DoDamage(int amount)
+    {
+        currentHp -= amount;
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if(i < currentHp)
+            if (i < currentHp)
             {
                 hearts[i].sprite = fullHearts;
             }
@@ -38,8 +37,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
                 hearts[i].sprite = emptyHearts;
             }
 
-
-            if(i < numOfHearts)
+            if (i < numOfHearts)
             {
                 hearts[i].enabled = true;
             }
@@ -48,10 +46,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
                 hearts[i].enabled = false;
             }
         }
-    }
-    public void DoDamage(int amount)
-    {
-        currentHp -= amount;
+
         if (currentHp <= 0)
         {
             Die();
