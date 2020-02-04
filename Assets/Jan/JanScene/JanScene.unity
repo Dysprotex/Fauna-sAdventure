@@ -1042,6 +1042,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2054256766}
   - component: {fileID: 2054256765}
+  - component: {fileID: 2054256768}
+  - component: {fileID: 2054256767}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1070,12 +1072,37 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054256764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 51.21, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2054256767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054256764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.754078, y: 6.5825863, z: 9.888306}
+  m_Center: {x: 5.377039, y: 2.7912931, z: 4.444153}
+--- !u!114 &2054256768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054256764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056071e969b249841957678c3cd14ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2089834287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,16 +1412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5870472791321218495, guid: d963cbff73b29b5498f9c1273c9b9727,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870472791321218495, guid: d963cbff73b29b5498f9c1273c9b9727,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 792778394, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
       propertyPath: initialHp
       value: 5
@@ -1408,6 +1425,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6155964434501200099, guid: 21b66ca9b7c81ac4cac7c14889e36c30,
         type: 3}
+    - target: {fileID: 5870472791321218495, guid: d963cbff73b29b5498f9c1273c9b9727,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870472791321218495, guid: d963cbff73b29b5498f9c1273c9b9727,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1144685708, guid: d963cbff73b29b5498f9c1273c9b9727, type: 3}
       propertyPath: speed
       value: 10

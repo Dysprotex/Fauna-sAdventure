@@ -67,6 +67,7 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         {
             if (jumpable == true)
             {
+                if (Time.timeScale <= 0) { return; }
                 speed = 7;
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
                 jumpable = false;
