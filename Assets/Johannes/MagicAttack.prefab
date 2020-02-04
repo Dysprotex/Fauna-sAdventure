@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 1
   initialVelocity: 200
-  lifeTime: 10
+  lifeTime: 3
 --- !u!136 &4006387049931278955
 CapsuleCollider:
   m_ObjectHideFlags: 0
