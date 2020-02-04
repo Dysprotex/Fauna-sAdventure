@@ -12,6 +12,7 @@ public class ShootController : MonoBehaviour, IInputReceiver
 
     public void OnFireDown()
     {
+        if (Time.timeScale <= 0) { return; }
         Shoot();
     }
 

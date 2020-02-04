@@ -62,8 +62,6 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         //PlayerMovement
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * speed);
 
-        camController.Shake(duration);
-
         //Player-Jump
         if (Input.GetButtonDown("Jump"))
         {
@@ -116,11 +114,9 @@ public class FaunaController : MonoBehaviour, IInputReceiver
     {
         jumpable = true;
     }
-
     
     public void OnFireDown()
     {
-        camController.Shake(duration);
         rb.AddRelativeForce(Vector3.forward * -50);
         speed = 10;
     }

@@ -1,19 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MyPauseMenu : MonoBehaviour
 {
-
-    public static bool GameIsPaused = false;
+    bool gameIsPaused = false;
+    public bool pausingGame;
 
     public GameObject PauseMenuUI;
+
+    public delegate void PauseGame(bool paused);
+    public static event PauseGame OnPauseGame;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (gameIsPaused)
             {
                 Resume();
             }
@@ -22,37 +28,35 @@ public class MyPauseMenu : MonoBehaviour
                 Pause();
             }
         }
-
-        if(GameIsPaused == false)
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if(GameIsPaused == true)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-
+       
     }
 
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1;
-        GameIsPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        gameIsPaused = false;
+
+        OnPauseGame?.Invoke(gameIsPaused);
     }
+
     void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0;
-        GameIsPaused = true;
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        gameIsPaused = true;
+
+        OnPauseGame?.Invoke(gameIsPaused);
     }
+
     public void LoadMenu()
     {
         Time.timeScale = 1;
-        GameIsPaused = true;
+        gameIsPaused = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 

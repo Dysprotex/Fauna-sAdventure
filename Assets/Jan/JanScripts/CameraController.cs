@@ -21,12 +21,6 @@ public class CameraController : MonoBehaviour
     float distance = 20f;
     float currentX;
     float currentY;
-    float sensivityX;
-    float sensivityY;
-
-    public float intensity = 10f;
-    float shakeDuration;
-    bool isShaking;
 
     void Awake()
     {
@@ -34,7 +28,6 @@ public class CameraController : MonoBehaviour
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
         }
-        initalPos = camTransform.localPosition;
     }
 
     private void Start()
@@ -44,6 +37,7 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.timeScale <= 0) { return; }
         currentX += Input.GetAxis("Mouse X");
         currentY -= Input.GetAxis("Mouse Y");
 
@@ -58,40 +52,14 @@ public class CameraController : MonoBehaviour
         {
             distance -= 1;
         }
-
-        if (shakeDuration > 0 && !isShaking)
-        {
-            StartCoroutine(DoShake());
-        }
     }
     private void LateUpdate()
     {
+        if(Time.timeScale <= 0){ return;}
+
         Vector3 dir = new Vector3(0, 0, -distance);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         camTransform.position = lookAt.position + rotation * dir;
         camTransform.LookAt(lookAt.position);
-    }
-
-    public void Shake(float duration)
-    {
-        if (duration > 0)
-        {
-            shakeDuration += duration;
-        }
-    }
-
-    IEnumerator DoShake()
-    {
-        isShaking = true;
-        var startTime = Time.realtimeSinceStartup;
-        while (Time.realtimeSinceStartup < startTime + shakeDuration)
-        {
-            var randomPoint = new Vector3(Random.Range(-1f, 1f) * intensity, Random.Range(-1f, 1f) * intensity, initalPos.z);
-            camTransform.localPosition = randomPoint;
-            yield return null;
-        }
-        shakeDuration = 0;
-        camTransform.localPosition = initalPos;
-        isShaking = false;
     }
 }
