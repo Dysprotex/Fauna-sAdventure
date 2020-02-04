@@ -489,11 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209172a8e9b3d040bd3b7a51e7769a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHp: 4
-  numOfHearts: 4
-  hearts: []
-  fullHearts: {fileID: 0}
-  emptyHearts: {fileID: 0}
+  initialHp: 7
 --- !u!114 &6128925861799281504
 MonoBehaviour:
   m_ObjectHideFlags: 0
