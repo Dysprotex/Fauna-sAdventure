@@ -22,13 +22,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         IDamagable damageReceiver = collision.gameObject.GetComponentInParent<IDamagable>();
 
-       /* if(gameObject.layer == 12)
-        {
-            if(collision.gameObject.layer == 9)
-            {
-                return;
-            }
-        }*/
 
         if (damageReceiver != null)
         {

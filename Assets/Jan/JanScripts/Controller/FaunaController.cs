@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class FaunaController : MonoBehaviour, IInputReceiver
 {
     Rigidbody rb;
+    Healthbehavior healthbehavior;
     public CameraController camController;
 
     float hInput, vInput;
@@ -37,6 +38,7 @@ public class FaunaController : MonoBehaviour, IInputReceiver
 
     private void Awake()
     {
+        healthbehavior = GetComponent<Healthbehavior>();
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 

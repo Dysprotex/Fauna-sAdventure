@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
     public int damageAmount;
+    bool knockback = false;
+    Vector3 direction;
 
     Transform target;
     NavMeshAgent agent;
@@ -33,6 +35,13 @@ public class EnemyController : MonoBehaviour
             script.enabled = true;
         }
     }
+    void FixedUpdate()
+    {
+        if (knockback)
+        {
+            agent.velocity = direction * 8;
+        }
+    }
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
@@ -43,11 +52,25 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         IDamagable damageReceiver = collision.gameObject.GetComponentInParent<IDamagable>();
+        
+        direction = collision.transform.forward;
+        StartCoroutine(KnockBack());
 
         if (damageReceiver != null)
         {
             damageReceiver.DoDamage(damageAmount);
         }
+
+    }
+    IEnumerator KnockBack()
+    {
+        knockback = true;
+        agent.angularSpeed = 0;
+
+        yield return new WaitForSeconds(0.2f);
+
+        knockback = false;
+        agent.angularSpeed = 150;
     }
 
     private void OnDrawGizmosSelected()
