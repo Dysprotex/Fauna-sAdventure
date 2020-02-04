@@ -7,6 +7,10 @@ public class ProgressbarDash : MonoBehaviour
 {
     private Slider slider;
 
+    public Image[] dash;
+    public Sprite fullDash;
+    public Sprite emptyDash;
+
     public float fillSpeed = 1f;
     private float targetProgress = 0;
     // Start is called before the first frame update
@@ -34,6 +38,14 @@ public class ProgressbarDash : MonoBehaviour
                 targetProgress = 0;
                 slider.value = 0;
             }
+        }
+        if (slider.value == 1f)
+        {
+            dash[0].sprite = fullDash;
+        }
+        else
+        {
+            dash[0].sprite = emptyDash;
         }
         IncrementProgress(1);
     }

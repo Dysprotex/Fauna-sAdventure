@@ -45785,6 +45785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6c37e73068301419767bd59912c9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dash:
+  - {fileID: 1859901532}
+  fullDash: {fileID: 21300000, guid: 08655695db9e02d46b17aad52bb9ea90, type: 3}
+  emptyDash: {fileID: 21300000, guid: c607a73a45989fb48be56bc87d485e6b, type: 3}
   fillSpeed: 1
 --- !u!1001 &1178663685
 PrefabInstance:
