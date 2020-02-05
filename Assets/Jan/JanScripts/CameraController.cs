@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
         if(Time.timeScale <= 0){ return;}
 
         Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        Quaternion rotation = Quaternion.Euler(currentY * 2, currentX * 2, 0);
         camTransform.position = lookAt.position + rotation * dir;
         camTransform.LookAt(lookAt.position);
     }

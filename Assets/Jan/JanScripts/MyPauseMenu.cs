@@ -64,4 +64,5 @@ public class MyPauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

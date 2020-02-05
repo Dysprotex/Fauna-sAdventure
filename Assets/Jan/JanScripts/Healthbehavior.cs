@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Healthbehavior : MonoBehaviour, IDamagable
 {
     public int numOfHearts;
     float timer;
     public int currentHp;
+    public int counter;
 
     Rigidbody rb;
     public Image[] hearts;
@@ -83,6 +85,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
 
         if (currentHp <= 0)
         {
+            counter++;
             Die();
         }
     }
@@ -91,5 +94,12 @@ public class Healthbehavior : MonoBehaviour, IDamagable
     {
         CancelInvoke("DisableSelf");
         gameObject.SetActive(false);
+    }
+    void WinCondition()
+    {
+        if(counter >= 30)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
