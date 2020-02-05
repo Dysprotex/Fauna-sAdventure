@@ -16,6 +16,9 @@ public class Enemy2Controller : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
+    bool knockback = false;
+    Vector3 direction;
+
     void Start()
     {
         inputReceivers = GetComponentsInChildren<IInputReceiver>();
@@ -77,10 +80,23 @@ public class Enemy2Controller : MonoBehaviour
     {
         IDamagable damageReceiver = collision.gameObject.GetComponentInParent<IDamagable>();
 
+        direction = collision.transform.forward * 2;
+        StartCoroutine(KnockBack());
+
         if (damageReceiver != null)
         {
             damageReceiver.DoDamage(damageAmount);
         }
+    }
+    IEnumerator KnockBack()
+    {
+        knockback = true;
+        agent.angularSpeed = 0;
+
+        yield return new WaitForSeconds(0.2f);
+
+        knockback = false;
+        agent.angularSpeed = 150;
     }
 
     private void OnDrawGizmosSelected()

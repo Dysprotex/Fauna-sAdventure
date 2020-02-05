@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
     {
         IDamagable damageReceiver = collision.gameObject.GetComponentInParent<IDamagable>();
         
-        direction = collision.transform.forward;
+        direction = collision.transform.forward * 2;
         StartCoroutine(KnockBack());
 
         if (damageReceiver != null)
