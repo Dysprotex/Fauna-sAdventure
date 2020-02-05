@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Healthbehavior : MonoBehaviour, IDamagable
 {
+    public static int healthIndex = 5;
     public int numOfHearts;
     float timer;
     public int currentHp;
     public int counter;
 
     public Animator animator;
+    GameObject obj;
 
     Rigidbody rb;
     public Image[] hearts;
@@ -26,11 +28,12 @@ public class Healthbehavior : MonoBehaviour, IDamagable
         {
             currentHp = numOfHearts;
         }
+        healthIndex = 5;
     }
     void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if(timer >= 5)
             {
@@ -87,15 +90,25 @@ public class Healthbehavior : MonoBehaviour, IDamagable
 
         if (currentHp == 0)
         {
-            counter++;
+            EnemyCounter.enemyCounter += 1;
             Die();
         }
     }
 
     void Die()
     {
-        animator.SetTrigger("OnDeath");
-        CancelInvoke("DisableSelf");
+
+        if (gameObject.CompareTag("Player"))
+        {
+            animator.SetTrigger("OnDeath");
+            healthIndex = 0;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+
+        }
+            CancelInvoke("DisableSelf");
     }
     void WinCondition()
     {

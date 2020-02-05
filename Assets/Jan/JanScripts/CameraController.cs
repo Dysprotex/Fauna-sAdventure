@@ -8,9 +8,6 @@ public class CameraController : MonoBehaviour
     public Transform camTransform;
     private Camera cam;
 
-    Vector3 initalPos;
-    Vector3 originalPos;
-
     private const float Y_ANGLE_MIN = 5f;
     private const float Y_ANGLE_MAX = 80f;
 
@@ -21,6 +18,7 @@ public class CameraController : MonoBehaviour
     float distance = 20f;
     float currentX;
     float currentY;
+    Vector3 height = new Vector3(0, 10, 0);
 
     void Awake()
     {

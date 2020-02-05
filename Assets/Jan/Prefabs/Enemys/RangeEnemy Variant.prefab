@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 6426303357674928062}
   m_Layer: 9
   m_Name: RangeEnemy Variant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,8 +489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209172a8e9b3d040bd3b7a51e7769a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHp: 7
   numOfHearts: 7
+  currentHp: 7
+  counter: 0
+  animator: {fileID: 0}
   hearts: []
   fullHearts: {fileID: 0}
   emptyHearts: {fileID: 0}

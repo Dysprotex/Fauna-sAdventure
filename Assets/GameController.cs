@@ -1,15 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public void End()
     {
-        Debug.Log("You Won the Game");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("You Won the Game");
+        SceneManager.LoadScene(3);
     }
 }

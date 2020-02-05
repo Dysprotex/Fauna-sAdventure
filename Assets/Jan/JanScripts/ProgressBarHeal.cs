@@ -7,6 +7,10 @@ public class ProgressBarHeal : MonoBehaviour
 {
     private Slider slider;
 
+    public Image[] dash;
+    public Sprite fullDash;
+    public Sprite emptyDash;
+
     public float fillSpeed = 0.2f;
     private float targetProgress = 0;
     // Start is called before the first frame update
@@ -27,13 +31,21 @@ public class ProgressBarHeal : MonoBehaviour
             slider.value += fillSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (slider.value == 1)
             {
                 targetProgress = 0;
                 slider.value = 0;
             }
+        }
+        if (slider.value == 1f)
+        {
+            dash[0].sprite = fullDash;
+        }
+        else
+        {
+            dash[0].sprite = emptyDash;
         }
         IncrementProgress(1);
     }

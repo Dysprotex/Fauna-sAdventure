@@ -1,55 +1,51 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MyPauseMenu : MonoBehaviour
+public class MyDeathMenu : MonoBehaviour
 {
     bool gameIsPaused = false;
-    public bool pausingGame;
+    bool pausingGame = true;
 
-    public GameObject PauseMenuUI;
-
-    public delegate void PauseGame(bool paused);
-    public static event PauseGame OnPauseGame;
+    public GameObject DeathMenuUI;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        
+        if (Healthbehavior.healthIndex == 0 && pausingGame == true)
         {
             if (gameIsPaused)
             {
-                Resume();
+                Restart();
+                pausingGame = false;
             }
             else
             {
                 Pause();
+                pausingGame = false;
             }
         }
-       
+
     }
 
-    public void Resume()
+    public void Restart()
     {
-        PauseMenuUI.SetActive(false);
+        DeathMenuUI.SetActive(false);
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         gameIsPaused = false;
-
-        OnPauseGame?.Invoke(gameIsPaused);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Pause()
     {
-        PauseMenuUI.SetActive(true);
+        DeathMenuUI.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         gameIsPaused = true;
-
-        OnPauseGame?.Invoke(gameIsPaused);
     }
 
     public void LoadMenu()
@@ -63,5 +59,4 @@ public class MyPauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
 }
