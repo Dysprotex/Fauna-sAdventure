@@ -11,6 +11,8 @@ public class Healthbehavior : MonoBehaviour, IDamagable
     public int currentHp;
     public int counter;
 
+    public Animator animator;
+
     Rigidbody rb;
     public Image[] hearts;
     public Sprite fullHearts;
@@ -83,7 +85,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
             }
         }
 
-        if (currentHp <= 0)
+        if (currentHp == 0)
         {
             counter++;
             Die();
@@ -92,8 +94,8 @@ public class Healthbehavior : MonoBehaviour, IDamagable
 
     void Die()
     {
+        animator.SetTrigger("OnDeath");
         CancelInvoke("DisableSelf");
-        gameObject.SetActive(false);
     }
     void WinCondition()
     {

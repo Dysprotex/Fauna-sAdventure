@@ -34,7 +34,7 @@ public class MouseRotatiion : MonoBehaviour
         }
         else
         {
-            mouseSpeed = 1;
+            mouseSpeed = 2;
         }
     }
 }

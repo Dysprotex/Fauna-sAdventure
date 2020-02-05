@@ -26,6 +26,7 @@ public class FaunaController : MonoBehaviour, IInputReceiver
 
     NavMeshAgent agent;
     public FaunaData data;
+    public Animator animator;
 
     public float ForwardMovement { get { return data.Acceleration; } }
     public float SidewayRotation { get { return data.RotationForce; } }
@@ -110,6 +111,9 @@ public class FaunaController : MonoBehaviour, IInputReceiver
         {
             dashAble = true;
         }
+
+        animator.SetFloat("MovementInputH", Input.GetAxis("Horizontal"));
+        animator.SetFloat("MovementInputV", Input.GetAxis("Vertical"));
     }
 
 
@@ -120,6 +124,9 @@ public class FaunaController : MonoBehaviour, IInputReceiver
     
     public void OnFireDown()
     {
+        animator.SetBool("OnShoot", true);
+        animator.SetBool("OnIdle", false);
+        animator.SetBool("OnRun", false);
         rb.AddRelativeForce(Vector3.forward * -50);
         speed = 10;
     }
