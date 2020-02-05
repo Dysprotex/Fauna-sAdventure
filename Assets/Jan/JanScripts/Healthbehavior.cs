@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Healthbehavior : MonoBehaviour, IDamagable
 {
@@ -93,5 +94,12 @@ public class Healthbehavior : MonoBehaviour, IDamagable
     {
         CancelInvoke("DisableSelf");
         gameObject.SetActive(false);
+    }
+    void WinCondition()
+    {
+        if(counter >= 30)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

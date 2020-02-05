@@ -18,6 +18,6 @@ public class FaunaData : ScriptableObject
 
     public void OutputData()
     {
-        Debug.Log(Acceleration + " | " + RotationForce);
+
     }
 }
