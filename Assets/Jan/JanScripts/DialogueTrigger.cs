@@ -5,6 +5,13 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    public BoxCollider boxCollider;
+    bool gameIsPaused = false;
+
+    private void Awake()
+    {
+        boxCollider = GetComponent<BoxCollider>();
+    }
 
     public void TriggerDialogue()
     {
@@ -12,11 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Time.timeScale = 0;
         TriggerDialogue();
-    }
-    void OnTriggerExit(Collider other)
-    {
-
+        boxCollider.enabled = false;
     }
 }

@@ -8,6 +8,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
     public int numOfHearts;
     float timer;
     public int currentHp;
+    public int counter;
 
     Rigidbody rb;
     public Image[] hearts;
@@ -83,6 +84,7 @@ public class Healthbehavior : MonoBehaviour, IDamagable
 
         if (currentHp <= 0)
         {
+            counter++;
             Die();
         }
     }

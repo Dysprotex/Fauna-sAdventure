@@ -9,8 +9,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
+    public GameObject Menu;
+
     private Queue<string> sentences;
 
+    bool gameIsPaused = false;
     void Start()
     {
         sentences = new Queue<string>();
@@ -18,6 +21,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        Pause();
+        Menu.SetActive(true);
         nameText.text = dialogue.npcname;
 
         sentences.Clear();
@@ -41,6 +46,23 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-        Debug.Log("End");
+        Resume();
+        Menu.SetActive(false);
+    }
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        gameIsPaused = false;
+
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        gameIsPaused = true;
     }
 }
