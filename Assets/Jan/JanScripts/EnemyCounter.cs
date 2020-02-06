@@ -12,6 +12,7 @@ public class EnemyCounter : MonoBehaviour
     TextMeshProUGUI score;
     void Start()
     {
+        enemyCounter = 0;
         score = GetComponent<TextMeshProUGUI>();
     }
 

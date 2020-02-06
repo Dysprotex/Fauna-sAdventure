@@ -397,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 4203583986714033732}
   m_LocalRotation: {x: 0, y: 0.9610377, z: 0, w: 0.27641737}
   m_LocalPosition: {x: 1.5037842, y: 21.20828, z: -67.51703}
-  m_LocalScale: {x: 6.013582, y: 6.0135803, z: 6.013582}
+  m_LocalScale: {x: 6.7146087, y: 6.0135803, z: 6.7146087}
   m_Children:
   - {fileID: 4203583986807174917}
   - {fileID: 4835970989965073799}
@@ -489,8 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209172a8e9b3d040bd3b7a51e7769a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfHearts: 7
-  currentHp: 7
+  numOfHearts: 5
+  currentHp: 5
   counter: 0
   animator: {fileID: 0}
   hearts: []

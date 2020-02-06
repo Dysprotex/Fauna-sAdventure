@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209172a8e9b3d040bd3b7a51e7769a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfHearts: 7
-  currentHp: 7
+  numOfHearts: 4
+  currentHp: 4
   counter: 0
   animator: {fileID: 0}
   hearts: []
